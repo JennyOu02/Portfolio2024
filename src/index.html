@@ -20,6 +20,15 @@
         html {
             scroll-behavior: smooth;
         }
+        .type-effect {
+            /* Cursor */
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -35,6 +44,19 @@
                 animation-timing-function: ease-in;
             }
         }
+        .toggle-bg {
+            background-color: #d1d5db; /* bg-gray-300 */
+        }
+        .toggle-bg-checked {
+            background-color: #7eb0ff; /* bg-blue-600 */
+        }
+        .toggle-knob {
+            transition: transform 0.2s ease-in-out;
+        }
+        .toggle-knob-checked {
+            transform: translateX(1.25rem); /* Adjust this value based on the width of the slider */
+        }
+
     </style>
 </head>
 <body class="bg-gray-800 font-serif fade-in">
@@ -83,10 +105,11 @@
         </div>
         <div class="relative z-10 text-white">
             <button class="text-5xl font-bold">Fan-Yi Ou</button>
-            <h1 class="text-3xl mt-4 mb-4 font-bold">Jenny Ou</h1>
+            <h1 class="text-3xl mt-4 mb-6 font-bold">Jenny Ou</h1>
             <hr>
-            <p class="text-2xl mt-4"></p>
-            <p class="text-lg mt-2">Description...</p>
+            <p class="text-lg mt-8">Graduate Software Engineer
+            </p>
+            <span id="typewriter" class="type-effect text-2xl font-semibold text-blue-400 border-white border-r-2"></span><br>
             <a href="#" class="mt-6 inline-block bg-gray-600 text-white font-bold py-2 px-4 rounded hover:bg-gray-400 transition">Download CV</a>
         </div>
     </header>
@@ -98,10 +121,19 @@
             <h2 class="text-3xl font-bold mb-10">About</h2>
             <div class="relative grid grid-cols-1 sm:grid-cols-2">
                 <div class="sm:absolute sm:border-l-2 sm:border-gray-300 sm:h-full sm:left-1/2 sm:transform sm:-translate-x-1/2 hidden sm:block"></div>
-                <div class="mb-8 ml-6">
-                    <p class="text-gray-700 leading-relaxed">As a graduated creative computing student, yesah kfrrjnfkjernfjern</p>
+                <div class="mb-8 ml-6 mr-10">
+                    <div class="text-gray-700 leading-relaxed">
+                        <p>Hello, I'm Jenny Ou, a passionate software engineer based in London, nearing the completion of my BSc in Creative Computing at Queen Mary University of London. </p>
+                        <p class="mt-4">Throughout my studies, I have developed a strong foundation in computer science and practical skills in Python, Java, C#, JavaScript, PHP, and SQL, with particular strength in <b>Python and JavaScript</b>. I am proficient in using frameworks and tools such as <b>React, Vue.js, Django, Git, and Unity.</b></p>
+
+                        <p class="mt-4">My professional experience includes a role as a CRM Specialist at Jobwise HR Solutions Ltd., where I implemented a CRM system that streamlined processes and boosted sales workflow efficiency. As an Interactive Production Team Leader at 360Fashion Network, I led innovative projects involving 3D filters and VR content creation.</p>
+
+                        <p class="mt-4">My academic projects span three main areas, <b>Software Applications, Games,</b> and <b>Data Analysis</b>. A notable project is my final project, where I built an automated CRM matching system for international institutions.</p>
+
+                        <p class="mt-4">I am eager to leverage technology to solve real-world problems and continuously learn and adopt new technologies. My goal is to contribute to cutting-edge projects that push the boundaries of technology.</p>
+                    </div>
                 </div>
-                <div class="mb-8 ml-8">
+                <div class="mb-8 sm:ml-10 ml-5">
                     <img src="./img/profile.png" class="rounded">
                 </div>
             </div>
@@ -137,43 +169,51 @@
     
     <section id="experience" class="py-16 bg-white fade-in relative z-30">
         <div class="container mx-auto px-6">
+            <!-- toggle -->
+            <!-- <label class="inline-flex items-center cursor-pointer relative float-right mt-3">
+                <input type="checkbox" class="sr-only peer" id="toggleSwitch">
+                <div class="w-11 h-6 rounded-full relative peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 toggle-bg" id="toggleBg">
+                    <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white border border-gray-300 rounded-full toggle-knob dark:border-gray-600" id="toggleKnob"></div>
+                </div> -->
+                <!-- <span class="ml-3 text-sm fot-bold font-medium text-gray-900 dark:text-gray-300">Switch to Extra Activities</span> -->
+            <!-- </label> -->
+
         <h2 class="text-3xl font-bold mb-10">Experience</h2>
         <div class="mt-8 grid grid-cols-1">
+            <!-- cards -->
             <div class="mb-8 ml-6 bg-blue-100 p-6 rounded-lg shadow-lg bounce">
                 <span class=" float-right">Jun 2023 – Sep 2023</span>
                 <h3 class="text-xl font-semibold">CRM Specialist</h3>
                 <span class="text-gray-500">Jobwise Ltd. (Tainan, Taiwan)</span>
-                <p class="text-gray-700 mt-3">• Assessed multiple CRM systems to identify the most cost-effective and efficient solution, enhancing company profitability.<br>
+                <p class="text-gray-700 mt-3">
+                    • Assessed multiple CRM systems to identify the most cost-effective and efficient solution, enhancing company profitability.<br>
                     • Integrated the chosen CRM into existing processes, boosting sales workflow efficiency by over 80%.<br>
                     • Enhanced communication between sales, finance, and marketing to maximise system performance.<br>
                     • Collaborated with the CRM provider for ongoing system refinement and optimisation.<br>
                     • Improved system access, accelerating the application process and increasing customer base by 20%.<br>
-                    • Managed documentation and training, ensuring smooth transition and system usability.</p>
+                    • Managed documentation and training, ensuring smooth transition and system usability.
+                </p>
             </div>
             <div class="mb-8 ml-6 bg-blue-100 p-6 rounded-lg shadow-lg bounce">
                 <span class=" float-right">Oct 2021 – Mar 2022</span>
                 <h3 class="text-xl font-semibold">Interactive Production Team Leader</h3>
                 <span class="text-gray-500">360Fashion Network (Remote, USA)</span>
-                <p class="text-gray-700 mt-3">• Led weekly virtual meetings for the interactive production team, fostering collaboration and project alignment.
-                    • Developed engaging social media filters using Spark AR for enhanced user interaction.
-                    • Produced and curated fashion tech content across multiple platforms, increasing brand visibility.
-                    • Streamlined the delivery of a weekly newsletter and podcasts, achieving a consistent 5% increase in audience reach through
-                    automation.
+                <p class="text-gray-700 mt-3">• Led weekly virtual meetings for the interactive production team, fostering collaboration and project alignment.<br>
+                    • Developed engaging social media filters using Spark AR for enhanced user interaction.<br>
+                    • Produced and curated fashion tech content across multiple platforms, increasing brand visibility.<br>
+                    • Streamlined the delivery of a weekly newsletter and podcasts, achieving a consistent 5% increase in audience reach through<br>
+                    automation.<br>
                     • Contributed to the development phase of fashion tech products, utilising M5Stack for advanced hardware integration.</p>
             </div>
             <div class="mb-8 ml-6 bg-blue-100 p-6 rounded-lg shadow-lg bounce">
                 <span class=" float-right">Aug 2021 – Sep 2021</span>
                 <h3 class="text-xl font-semibold">Fashion Tech Intern</h3>
                 <span class="text-gray-500">360Fashion Network (Remote, USA)</span>
-                <p class="text-gray-700 mt-3">• Led weekly virtual meetings for the interactive production team, fostering collaboration and project alignment.
-                    • Developed engaging social media filters using Spark AR for enhanced user interaction.
-                    • Produced and curated fashion tech content across multiple platforms, increasing brand visibility.
-                    • Streamlined the delivery of a weekly newsletter and podcasts, achieving a consistent 5% increase in audience reach through
-                    automation.
-                    • Contributed to the development phase of fashion tech products, utilising M5Stack for advanced hardware integration.</p>
+                <p class="text-gray-700 mt-3">• Evaluated and selected platforms for automating interactive content and optimizing SEO strategies to enhance workflow efficiency.<br>
+                    • Provided Python training to non-technical staff, enabling them to achieve certification and enhancing team capabilities.</p>
+            </div>
             </div>
         </div>
-    </div>
     </section>
 
     <section id="skills" class="py-16 bg-gray-100 fade-in relative z-30">
@@ -181,16 +221,42 @@
             <h2 class="text-3xl font-bold mb-6">Skills</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-xl font-semibold">Technical</h3>
+                    <h3 class="text-xl font-semibold mb-3">Languages</h3>
                     <p class="text-gray-700">Python</p>
+                    <p class="text-gray-700">JavaScript</p>
+                    <p class="text-gray-700">Java</p>
+                    <p class="text-gray-700">PHP</p>
+                    <p class="text-gray-700">SQL</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold">Soft Skills</h3>
-                    <p class="text-gray-700">Communication</p>
+                    <h3 class="text-xl font-semibold mb-3">Frameworks / Tools</h3>
+                    <p class="text-gray-700">Django</p>
+                    <p class="text-gray-700">React</p>
+                    <p class="text-gray-700">Vue</p>
+                    <p class="text-gray-700">Tailwind CSS</p>
+                    <p class="text-gray-700">Git</p>
+                    <p class="text-gray-700">Unity</p>
+                    <p class="text-gray-700">Pytorch</p>
+
+                    <p class="text-gray-700">Salesforce</p>
+
+
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold">Languages</h3>
+                    <h3 class="text-xl font-semibold mb-3">Skills</h3>
+                    <p class="text-gray-700">Web Programming</p>
+                    <p class="text-gray-700">Web Design</p>
+                    <p class="text-gray-700">Business Analysing</p>
+                    <p class="text-gray-700">System Analysing</p>
+                    <p class="text-gray-700">Database Development</p>
+                    <p class="text-gray-700">Information Management</p>
+                    <p class="text-gray-700">Cloud Application Development</p>
+
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Languages</h3>
                     <p class="text-gray-700">English</p>
+                    <p class="text-gray-700">Mandarin</p>
                 </div>
             </div>
         </div>
@@ -233,8 +299,8 @@
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg bounce flex flex-col justify-between"  data-category="data">
                     <img src="./img/ai.png" alt="Project 3" class="mb-4 rounded w-full">
-                    <h3 class="text-xl font-semibold">Image Classification Using CIFAR-10 Dataset</h3>
-                    <p class="text-lg text-gray-700">Description</p>
+                    <h3 class="text-xl font-semibold">Image Classification Model</h3>
+                    <p class="text-gray-700">Building and training an image classification with the CIFAR-10 dataset.</p>
                     <div class="flex justify-start space-x-1 mt-3 text-xs font-mono">
                         <div class="text-white bg-red-400 p-1 rounded">PyTorch</div>
                         <div class="text-white bg-red-400 p-1 rounded">Numpy</div>
@@ -243,7 +309,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg bounce flex flex-col justify-between"  data-category="app">
                     <img src="./img/weather.png" alt="Project 5" class="mb-4 rounded w-full">
                     <h3 class="text-xl font-semibold">Gardener Weather App</h3>
-                    <p class="text-lg text-gray-700">Description</p>
+                    <p class="text-gray-700">A weather application designed with essential information for gardeners.</p>
                     <div class="flex justify-start space-x-1 mt-3 font-mono">
                         <div class="text-white text-xs bg-red-400 p-1 rounded">JavaScript</div>
                         <div class="text-white text-xs bg-red-400 p-1 rounded">React</div>
@@ -252,7 +318,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg bounce flex flex-col justify-between"  data-category="app">
                     <img src="./img/crypto.png" alt="Project 4" class="mb-4 rounded w-full">
                     <h3 class="text-xl font-semibold">Educational Crypto Trading Platform</h3>
-                    <p class="text-lg text-gray-700">Description</p>
+                    <p class="text-gray-700">A crypto trading platform designed for educational purpose.</p>
                     <div class="flex justify-start space-x-1 mt-3 font-mono">
                         <div class="text-white text-xs bg-red-400 p-1 rounded">PHP</div>
                         <div class="text-white text-xs bg-red-400 p-1 rounded">HTML</div>
@@ -262,7 +328,6 @@
 
                     </div>
                 </div>
-                <!-- Add more project items as needed -->
             </div>
         </div>
     </section>
@@ -286,7 +351,7 @@
     
     <footer class="bg-gray-800 py-6 relative z-30">
         <div class="container mx-auto text-center text-white">
-            &copy; 2023 Fan-Yi Ou. All rights reserved.
+            &copy; 2024 Fan-Yi Ou. All rights reserved.
         </div>
     </footer>
 

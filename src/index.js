@@ -41,7 +41,54 @@ proj_btns.forEach(btn => {
     });
 });
 
+// typing effect
+const words = ["Frontend", "Web Programming", "UI/UX Design", "CRM Analysis", "Data Analysis"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let typing = true;
+    const typewriterElement = document.getElementById("typewriter");
+
+    function typeEffect() {
+        const currentWord = words[wordIndex];
+        if (typing) {
+            charIndex++;
+            if (charIndex === currentWord.length + 1) {
+                typing = false;
+                setTimeout(typeEffect, 1000); // Pause before deleting
+                return;
+            }
+        } else {
+            charIndex--;
+            if (charIndex === -1) {
+                typing = true;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(typeEffect, 500); // Pause before typing the next word
+                return;
+            }
+        }
+
+        typewriterElement.textContent = currentWord.substring(0, charIndex);
+        setTimeout(typeEffect, typing ? 200 : 100); // Typing speed / Deleting speed
+    }
+typeEffect();
+
+// toggle button effect
+document.getElementById('toggleSwitch').addEventListener('change', function() {
+    var toggleBg = document.getElementById('toggleBg');
+    var toggleKnob = document.getElementById('toggleKnob');
+
+    if (this.checked) {
+        toggleBg.classList.add('toggle-bg-checked');
+        toggleKnob.classList.add('toggle-knob-checked');
+    } else {
+        toggleBg.classList.remove('toggle-bg-checked');
+        toggleKnob.classList.remove('toggle-knob-checked');
+    }
+});
+
+
 // paragraph insert
+
 const edu1 = `
   During my first and second year, I acquired solid practical skills and theoretical knowledge in computer science.
    Additionally, I developed expertise in full stack development, <b>Database Management</b>, 
