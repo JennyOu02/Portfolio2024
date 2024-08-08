@@ -98,3 +98,24 @@ const edu1 = `
      </b> and <b>Data Mining</b>.
 `;
 document.getElementById('edu1').innerHTML = edu1;
+
+// experience fade in effect
+document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            } else {
+                entry.target.classList.remove('in-view');
+            }
+        });
+    }, {
+        threshold: 0.5 // Adjust this value based on when you want the fade effect to trigger
+    });
+
+    document.querySelectorAll('.fade').forEach(block => {
+        observer.observe(block);
+    });
+});
+
+
