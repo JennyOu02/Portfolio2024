@@ -42,7 +42,7 @@ proj_btns.forEach(btn => {
 });
 
 // typing effect
-const words = ["Frontend", "Web Programming", "UI/UX Design", "CRM Analysis", "Data Analysis"];
+const words = ["Web Developer", "Software Engineer"];
     let wordIndex = 0;
     let charIndex = 0;
     let typing = true;
