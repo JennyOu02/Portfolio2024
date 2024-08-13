@@ -73,31 +73,31 @@ const words = ["Web Developer", "Software Engineer"];
 typeEffect();
 
 // toggle button effect
-document.getElementById('toggleSwitch').addEventListener('change', function() {
-    var toggleBg = document.getElementById('toggleBg');
-    var toggleKnob = document.getElementById('toggleKnob');
+// document.getElementById('toggleSwitch').addEventListener('change', function() {
+//     var toggleBg = document.getElementById('toggleBg');
+//     var toggleKnob = document.getElementById('toggleKnob');
 
-    if (this.checked) {
-        toggleBg.classList.add('toggle-bg-checked');
-        toggleKnob.classList.add('toggle-knob-checked');
-    } else {
-        toggleBg.classList.remove('toggle-bg-checked');
-        toggleKnob.classList.remove('toggle-knob-checked');
-    }
-});
+//     if (this.checked) {
+//         toggleBg.classList.add('toggle-bg-checked');
+//         toggleKnob.classList.add('toggle-knob-checked');
+//     } else {
+//         toggleBg.classList.remove('toggle-bg-checked');
+//         toggleKnob.classList.remove('toggle-knob-checked');
+//     }
+// });
 
 
 // paragraph insert
 
-const edu1 = `
-  During my first and second year, I acquired solid practical skills and theoretical knowledge in computer science.
-   Additionally, I developed expertise in full stack development, <b>Database Management</b>, 
-   <b>UI/UX Design</b>, <b>Media Design and Production</b>, and  <b>Sound Design</b>.
-    In my final year, I chose more technical modules such as <b>Advanced Web Programming</b> and
-     <b>Game Development</b>, as well as data analysis modules including <b>Neural Networks and Deep Learning
-     </b> and <b>Data Mining</b>.
-`;
-document.getElementById('edu1').innerHTML = edu1;
+// const edu1 = `
+//   During my first and second year, I acquired solid practical skills and theoretical knowledge in computer science.
+//    Additionally, I developed expertise in full stack development, <b>Database Management</b>, 
+//    <b>UI/UX Design</b>, <b>Media Design and Production</b>, and  <b>Sound Design</b>.
+//     In my final year, I chose more technical modules such as <b>Advanced Web Programming</b> and
+//      <b>Game Development</b>, as well as data analysis modules including <b>Neural Networks and Deep Learning
+//      </b> and <b>Data Mining</b>.
+// `;
+// document.getElementById('edu1').innerHTML = edu1;
 
 // experience fade in effect
 document.addEventListener("DOMContentLoaded", function() {
@@ -118,4 +118,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// handles projects redirection
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.proj-filter div[data-category]');
 
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const projectName = this.getAttribute('data-project');
+            console.log("Redirecting to project:", projectName); // Debug log
+            window.location.href = `projects.html#${projectName}`;
+        });
+    });
+});
